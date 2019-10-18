@@ -11,7 +11,7 @@ const example = source.pipe(
 const subscribe = example.subscribe(val =>
   console.log(`With concatMap: ${val}`)
 );
-
+subscribe.unsubscribe();
 // showing the difference between concatMap and mergeMap
 const mergeMapExample = source
   .pipe(
@@ -20,3 +20,5 @@ const mergeMapExample = source
     mergeMap(val => of(`Delayed by: ${val}ms`).pipe(delay(val)))
   )
   .subscribe(val => console.log(`With mergeMap: ${val}`));
+
+mergeMapExample.unsubscribe();
