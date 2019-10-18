@@ -1,8 +1,6 @@
 import { of } from 'rxjs';
 import { concatMap, switchMap, delay, mergeMap } from 'rxjs/operators';
 
-console.log(`------------------- concatMap ---------------------`)
-
 //emit delay value
 const source = of(1000, 500, 2000, 800);
 // map value from source into inner observable, when complete emit result and move to next
@@ -14,7 +12,6 @@ const subscribe = example.subscribe(val =>
   console.log(`With concatMap: ${val}`)
 );
 
-console.log(`------------------- mergeMap ---------------------`)
 // showing the difference between concatMap and mergeMap
 const mergeMapExample = source
   .pipe(
@@ -25,7 +22,6 @@ const mergeMapExample = source
   .subscribe(val => console.log(`With mergeMap: ${val}`));
 
 
-console.log(`------------------- switchMap ---------------------`)
 // showing the difference between concatMap and mergeMap
 const switchMapExample = source
   .pipe(
